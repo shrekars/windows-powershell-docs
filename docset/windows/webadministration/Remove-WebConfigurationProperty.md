@@ -40,8 +40,13 @@ The **Remove-WebConfigurationProperty** cmdlet removes an Internet Information S
 ```
 IIS:\> Remove-WebConfigurationProperty -Filter '/system.applicationHost/sites/site[@name="Default Web Site"]' -Name "Bindings.collection" -AtIndex 0
 ```
-
 This command removes the first binding on the default website.
+
+### Example 2: Remove the condition rule
+```
+IIS:\> Remove-WebConfigurationProperty -Filter 'system.webServer/rewrite/globalRules/rule[@name="RuleName"]' -Name "conditions.Collection" -AtElement @{pattern='ConditionName'}
+```
+This command removes a pattern condition on url rewrite rule
 
 ## PARAMETERS
 
